@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caixa - Adega e Churrascaria do Dino</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts para excelente legibilidade -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header do App -->
+    <header class="app-header no-print">
+        <h1>CAIXA - Adega do Dino</h1>
+        <button id="btn-report" class="btn-secondary">📋 Relatório do Dia</button>
+    </header>
+
+    <!-- Área Principal -->
+    <main class="app-main no-print">
+        
+        <!-- Lado Esquerdo: Menu de Itens (Grandes botões) -->
+        <section class="menu-section">
+            <div class="menu-controls">
+                <div class="category-filters" id="category-filters">
+                    <!-- Botões de categoria gerados pelo JS -->
+                </div>
+                <button id="btn-custom-item" class="btn-custom-item">+ Item Avulso (Diversos)</button>
+            </div>
+            
+            <div class="items-grid" id="items-grid">
+                <!-- Botões de itens gerados pelo JS -->
+            </div>
+        </section>
+
+        <!-- Lado Direito: Resumo da Conta -->
+        <section class="ticket-section">
+            <h2>Conta Atual</h2>
+            
+            <div class="ticket-items" id="ticket-items">
+                <!-- Itens da conta aparecerão aqui -->
+            </div>
+
+            <div class="ticket-summary">
+                <div class="summary-line">
+                    <span>Subtotal:</span>
+                    <span id="subtotal">R$ 0,00</span>
+                </div>
+                
+                <div class="summary-controls">
+                    <label class="toggle-control">
+                        <input type="checkbox" id="tax-toggle" checked>
+                        Taxa 10%
+                    </label>
+                    <div class="couvert-control">
+                        <label for="couvert-input">Couvert (R$):</label>
+                        <input type="number" id="couvert-input" value="0.00" step="0.50" min="0">
+                    </div>
+                </div>
+                
+                <div class="summary-line total-line">
+                    <span>TOTAL:</span>
+                    <span id="total-price">R$ 0,00</span>
+                </div>
+
+                <div class="split-control">
+                    <label for="split-input">Dividir por (Pessoas):</label>
+                    <div class="split-actions">
+                        <button type="button" id="btn-minus-person" class="btn-icon">-</button>
+                        <input type="number" id="split-input" value="1" min="1">
+                        <button type="button" id="btn-plus-person" class="btn-icon">+</button>
+                    </div>
+                    <div class="split-result" id="split-result">
+                        R$ 0,00 por pessoa
+                    </div>
+                </div>
+
+                <div class="table-selector-bottom">
+                    <label for="table-number">Mesa / Comanda:</label>
+                    <input type="number" id="table-number" min="1" value="1" placeholder="Nº">
+                </div>
+
+                <button id="btn-print" class="btn-primary">FECHAR E IMPRIMIR CUPOM</button>
+                <button id="btn-clear" class="btn-danger">NOVA CONTA (LIMPAR)</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Área exclusiva para Impressão (80mm) -->
+    <div id="print-area" class="print-only">
+        <!-- O conteúdo do recibo será gerado aqui pelo JS -->
+    </div>
+
+    <!-- Modal Relatório do Dia -->
+    <div id="report-modal" class="modal-overlay hidden no-print">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Relatório do Dia</h2>
+                <button id="btn-close-report" class="btn-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="report-summary">
+                    <h3>Faturamento Total: <span id="report-total" class="report-value">R$ 0,00</span></h3>
+                    <p style="margin: 10px 0;">Faturamento Real: <b id="report-real">R$ 0,00</b> | Taxa 10%: <b id="report-tax">R$ 0,00</b></p>
+                    <p>Contas Fechadas: <span id="report-count">0</span></p>
+                </div>
+                <div class="report-list" id="report-list">
+                    <!-- Lista de mesas fechadas -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btn-clear-report" class="btn-danger">ZERAR CAIXA DO DIA</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
