@@ -43,6 +43,7 @@ const menuData = [
     { id: 29, name: "Pudim Leite Condensado", price: 29.90, category: "Sobremesas" },
     { id: 30, name: "Petit Gateau", price: 34.90, category: "Sobremesas" },
     { id: 31, name: "Fatia de Abacaxi", price: 19.90, category: "Sobremesas" },
+    { id: 47, name: "Café Expresso", price: 9.00, category: "Sobremesas" },
 
     // Bebidas
     { id: 32, name: "Refrigerante Lata 350ml", price: 14.00, category: "Bebidas" },
