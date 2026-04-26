@@ -12,19 +12,19 @@ const menuData = [
     // Especialidades (Carnes)
     { id: 6, name: "Picanha Premium (Indiv)", price: 129.90, category: "Especialidades" },
     { id: 7, name: "Picanha Premium (Dupla)", price: 239.90, category: "Especialidades" },
-    { id: 8, name: "Bife Ancho (Indiv)", price: 109.90, category: "Especialidades" },
-    { id: 9, name: "Bife Ancho (Dupla)", price: 219.90, category: "Especialidades" },
-    { id: 10, name: "Bife de Chorizo (Indiv)", price: 109.90, category: "Especialidades" },
-    { id: 11, name: "Bife de Chorizo (Dupla)", price: 219.90, category: "Especialidades" },
+    { id: 8, name: "Bife Ancho (Indiv)", price: 106.90, category: "Especialidades" },
+    { id: 9, name: "Bife Ancho (Dupla)", price: 209.90, category: "Especialidades" },
+    { id: 10, name: "Bife de Chorizo (Indiv)", price: 106.90, category: "Especialidades" },
+    { id: 11, name: "Bife de Chorizo (Dupla)", price: 209.90, category: "Especialidades" },
     { id: 12, name: "Chuleta T-Bone (Indiv)", price: 119.90, category: "Especialidades" },
     { id: 13, name: "Chuleta T-Bone (Dupla)", price: 229.90, category: "Especialidades" },
-    { id: 14, name: "Maminha (Indiv)", price: 104.90, category: "Especialidades" },
-    { id: 15, name: "Maminha (Dupla)", price: 209.90, category: "Especialidades" },
-    { id: 16, name: "Fraldinha (Indiv)", price: 104.90, category: "Especialidades" },
-    { id: 17, name: "Fraldinha (Dupla)", price: 209.90, category: "Especialidades" },
-    { id: 18, name: "Carré de Cordeiro", price: 249.90, category: "Especialidades" },
-    { id: 19, name: "Salmão (Indiv)", price: 104.90, category: "Especialidades" },
-    { id: 20, name: "Salmão (Dupla)", price: 209.90, category: "Especialidades" },
+    { id: 14, name: "Maminha (Indiv)", price: 99.90, category: "Especialidades" },
+    { id: 15, name: "Maminha (Dupla)", price: 199.90, category: "Especialidades" },
+    { id: 16, name: "Fraldinha (Indiv)", price: 99.90, category: "Especialidades" },
+    { id: 17, name: "Fraldinha (Dupla)", price: 199.90, category: "Especialidades" },
+    { id: 18, name: "Carré de Cordeiro", price: 239.90, category: "Especialidades" },
+    { id: 19, name: "Salmão (Indiv)", price: 96.90, category: "Especialidades" },
+    { id: 20, name: "Salmão (Dupla)", price: 199.80, category: "Especialidades" },
     { id: 21, name: "Frango Grelhado (Indiv)", price: 84.90, category: "Especialidades" },
     { id: 22, name: "Frango Grelhado (Dupla)", price: 169.80, category: "Especialidades" },
 
@@ -220,16 +220,16 @@ function setupEventListeners() {
     document.getElementById("btn-custom-item").addEventListener("click", () => {
         const name = prompt("Nome do Item Avulso:");
         if (!name) return;
-        
+
         const priceStr = prompt("Valor em reais (ex: 15.50 ou 15,50):");
         if (!priceStr) return;
-        
+
         const price = parseFloat(priceStr.replace(',', '.'));
         if (isNaN(price) || price < 0) {
             alert("Valor inválido!");
             return;
         }
-        
+
         const customItem = {
             id: Date.now(),
             name: "AVULSO: " + name,
@@ -375,16 +375,16 @@ function handlePrintReceipt() {
 // ==========================================
 function setupReportModal() {
     const reportModal = document.getElementById("report-modal");
-    
+
     document.getElementById("btn-report").addEventListener("click", () => {
         renderDailyReport();
         reportModal.classList.remove("hidden");
     });
-    
+
     document.getElementById("btn-close-report").addEventListener("click", () => {
         reportModal.classList.add("hidden");
     });
-    
+
     document.getElementById("btn-clear-report").addEventListener("click", () => {
         if (confirm("ATENÇÃO: Tem certeza que deseja zerar o caixa do dia? Todos os registros salvos serão apagados!")) {
             localStorage.removeItem('adegaDailyReport');
@@ -393,6 +393,98 @@ function setupReportModal() {
             reportModal.classList.add("hidden");
         }
     });
+
+    document.getElementById("btn-print-report").addEventListener("click", () => {
+        printDailyReport();
+    });
+}
+
+function printDailyReport() {
+    const dailyReport = JSON.parse(localStorage.getItem('adegaDailyReport')) || [];
+    if (dailyReport.length === 0) {
+        alert("Não há dados no relatório de hoje para imprimir.");
+        return;
+    }
+
+    const printArea = document.getElementById("print-area");
+    let totalSales = 0;
+    let totalTax = 0;
+    let totalReal = 0;
+    let itemsHTML = "";
+
+    dailyReport.forEach(report => {
+        totalSales += report.total || 0;
+        const tax = report.tax || 0;
+        const real = report.real || report.total || 0;
+        totalTax += tax;
+        totalReal += real;
+
+        // Extrai apenas a hora se a string tiver formato "dd/mm/aaaa, hh:mm:ss"
+        let timeStr = report.time;
+        if (timeStr.includes(",")) {
+            timeStr = timeStr.split(",")[1].trim();
+        }
+
+        itemsHTML += `
+            <div style="border-bottom: 1px dashed #000; padding-bottom: 5px; margin-bottom: 5px;">
+                <div style="display:flex; justify-content:space-between; font-size: 14px;">
+                    <span>Mesa ${report.table} <small>(${timeStr})</small></span>
+                    <b>${(report.total || 0).toFixed(2)}</b>
+                </div>
+                <div style="display:flex; justify-content:space-between; font-size: 12px;">
+                    <span>Real: ${real.toFixed(2)}</span>
+                    <span>Taxa: ${tax.toFixed(2)}</span>
+                </div>
+            </div>
+        `;
+    });
+
+    const dataHora = new Date().toLocaleString("pt-BR");
+
+    printArea.innerHTML = `
+        <div class="receipt-header">
+            <h2>ADEGA DO DINO</h2>
+            <div>Relatório de Vendas (Caixa)</div>
+            <div>Data de Fechamento:</div>
+            <div>${dataHora}</div>
+            <br>
+        </div>
+        
+        <div class="receipt-info">
+            <div>Total de Contas: <b>${dailyReport.length}</b></div>
+        </div>
+        
+        <br>
+        <div style="text-align: center; border-bottom: 1px solid #000; margin-bottom: 10px;">
+            <b>REGISTROS</b>
+        </div>
+        
+        <div style="margin-bottom: 15px;">
+            ${itemsHTML}
+        </div>
+
+        <div class="receipt-totals">
+            <div class="receipt-line">
+                <span>Faturamento Real:</span>
+                <span>R$ ${totalReal.toFixed(2)}</span>
+            </div>
+            <div class="receipt-line">
+                <span>Taxa de Serviço:</span>
+                <span>R$ ${totalTax.toFixed(2)}</span>
+            </div>
+            <div class="receipt-line receipt-total-big">
+                <span>TOTAL DO DIA:</span>
+                <span>R$ ${totalSales.toFixed(2)}</span>
+            </div>
+        </div>
+
+        <div class="receipt-footer">
+            <p>-- Fechamento de Caixa --</p>
+            <p>-- Sistema Não Fiscal --</p>
+        </div>
+    `;
+
+    window.print();
 }
 
 function renderDailyReport() {
@@ -400,16 +492,17 @@ function renderDailyReport() {
     let totalSales = 0;
     let totalTax = 0;
     let totalReal = 0;
-    
+
     const reportListEl = document.getElementById("report-list");
     reportListEl.innerHTML = "";
-    
+
     // Mostra do mais recente para o mais antigo
-    [...dailyReport].reverse().forEach(report => {
+    [...dailyReport].reverse().forEach((report, index) => {
+        const originalIndex = dailyReport.length - 1 - index;
         totalSales += report.total || 0;
         const tax = report.tax || 0;
         const real = report.real || report.total || 0; // fallback
-        
+
         totalTax += tax;
         totalReal += real;
 
@@ -426,14 +519,18 @@ function renderDailyReport() {
                 <span>Real: ${formatCurrency(real)}</span>
                 <span>Taxa 10%: ${formatCurrency(tax)}</span>
             </div>
+            <div style="display:flex; justify-content:flex-end; gap: 8px; margin-top: 8px;">
+                ${tax > 0 ? `<button onclick="removeTaxFromReport(${originalIndex})" style="padding: 4px 8px; font-size: 12px; background: #f39c12; color: #fff; border: none; border-radius: 4px; cursor: pointer;">Remover 10%</button>` : ''}
+                <button onclick="removeReportItem(${originalIndex})" style="padding: 4px 8px; font-size: 12px; background: #e74c3c; color: #fff; border: none; border-radius: 4px; cursor: pointer;">Excluir Mesa</button>
+            </div>
         `;
         reportListEl.appendChild(div);
     });
-    
+
     if (dailyReport.length === 0) {
         reportListEl.innerHTML = "<p style='text-align:center; padding: 20px; color: #666;'>Nenhuma mesa salva no caixa hoje.</p>";
     }
-    
+
     document.getElementById("report-count").textContent = dailyReport.length;
     document.getElementById("report-total").textContent = formatCurrency(totalSales);
     document.getElementById("report-real").textContent = formatCurrency(totalReal);
@@ -443,3 +540,29 @@ function renderDailyReport() {
 // Inicia o app
 setupReportModal();
 init();
+
+// ==========================================
+// FUNÇÕES GLOBAIS DE EDIÇÃO DO RELATÓRIO
+// ==========================================
+window.removeTaxFromReport = function (index) {
+    let dailyReport = JSON.parse(localStorage.getItem('adegaDailyReport')) || [];
+    if (dailyReport[index] && dailyReport[index].tax > 0) {
+        if (confirm("Deseja remover a taxa de 10% desta mesa? O valor total será recalculado.")) {
+            dailyReport[index].total -= dailyReport[index].tax;
+            dailyReport[index].tax = 0;
+            localStorage.setItem('adegaDailyReport', JSON.stringify(dailyReport));
+            renderDailyReport();
+        }
+    }
+};
+
+window.removeReportItem = function (index) {
+    let dailyReport = JSON.parse(localStorage.getItem('adegaDailyReport')) || [];
+    if (dailyReport[index]) {
+        if (confirm("Deseja realmente EXCLUIR esta mesa do relatório?")) {
+            dailyReport.splice(index, 1);
+            localStorage.setItem('adegaDailyReport', JSON.stringify(dailyReport));
+            renderDailyReport();
+        }
+    }
+};
