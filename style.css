@@ -261,19 +261,25 @@ body {
     border: 1px solid var(--border-color);
 }
 
-.toggle-control {
-    font-size: 18px;
-    font-weight: 600;
+.tax-control {
     display: flex;
     align-items: center;
     gap: 8px;
-    cursor: pointer;
 }
 
-.toggle-control input {
-    width: 24px;
-    height: 24px;
+.tax-control label {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.tax-select {
+    font-size: 16px;
+    padding: 6px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: white;
     cursor: pointer;
+    font-family: inherit;
 }
 
 .couvert-control {

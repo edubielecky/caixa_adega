@@ -47,10 +47,14 @@
                 </div>
                 
                 <div class="summary-controls">
-                    <label class="toggle-control">
-                        <input type="checkbox" id="tax-toggle" checked>
-                        Taxa 10%
-                    </label>
+                    <div class="tax-control">
+                        <label for="tax-select">Taxa:</label>
+                        <select id="tax-select" class="tax-select">
+                            <option value="10" selected>10%</option>
+                            <option value="5">5%</option>
+                            <option value="0">Sem Taxa</option>
+                        </select>
+                    </div>
                     <div class="couvert-control">
                         <label for="couvert-input">Couvert (R$):</label>
                         <input type="number" id="couvert-input" value="0.00" step="0.50" min="0">
@@ -100,7 +104,7 @@
             <div class="modal-body">
                 <div class="report-summary">
                     <h3>Faturamento Total: <span id="report-total" class="report-value">R$ 0,00</span></h3>
-                    <p style="margin: 10px 0;">Faturamento Real: <b id="report-real">R$ 0,00</b> | Taxa 10%: <b id="report-tax">R$ 0,00</b></p>
+                    <p style="margin: 10px 0;">Faturamento Real: <b id="report-real">R$ 0,00</b> | Taxa: <b id="report-tax">R$ 0,00</b></p>
                     <p>Contas Fechadas: <span id="report-count">0</span></p>
                 </div>
                 <div class="report-list" id="report-list">

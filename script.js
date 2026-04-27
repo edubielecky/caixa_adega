@@ -5,28 +5,29 @@ const menuData = [
     // Entradas
     { id: 1, name: "Torresmo de Rolo", price: 49.90, category: "Entradas" },
     { id: 2, name: "Torresmo Pururuca (cubinhos)", price: 49.90, category: "Entradas" },
-    { id: 3, name: "Brusqueta da Nonna", price: 39.90, category: "Entradas" },
+    { id: 3, name: "Brusqueta", price: 39.90, category: "Entradas" },
     { id: 4, name: "Polenta Ouro da Casa", price: 49.90, category: "Entradas" },
     { id: 5, name: "Fritas", price: 39.50, category: "Entradas" },
+    { id: 51, name: "Espeto de Queijo", price: 34.90, category: "Entradas" },
 
     // Especialidades (Carnes)
     { id: 6, name: "Picanha Premium (Indiv)", price: 129.90, category: "Especialidades" },
-    { id: 7, name: "Picanha Premium (Dupla)", price: 239.90, category: "Especialidades" },
-    { id: 8, name: "Bife Ancho (Indiv)", price: 106.90, category: "Especialidades" },
-    { id: 9, name: "Bife Ancho (Dupla)", price: 209.90, category: "Especialidades" },
-    { id: 10, name: "Bife de Chorizo (Indiv)", price: 106.90, category: "Especialidades" },
-    { id: 11, name: "Bife de Chorizo (Dupla)", price: 209.90, category: "Especialidades" },
+    { id: 7, name: "Picanha Premium (Dupla)", price: 249.90, category: "Especialidades" },
+    { id: 8, name: "Bife Ancho (Indiv)", price: 109.90, category: "Especialidades" },
+    { id: 9, name: "Bife Ancho (Dupla)", price: 219.90, category: "Especialidades" },
+    { id: 10, name: "Bife de Chorizo (Indiv)", price: 109.90, category: "Especialidades" },
+    { id: 11, name: "Bife de Chorizo (Dupla)", price: 219.90, category: "Especialidades" },
     { id: 12, name: "Chuleta T-Bone (Indiv)", price: 119.90, category: "Especialidades" },
-    { id: 13, name: "Chuleta T-Bone (Dupla)", price: 229.90, category: "Especialidades" },
-    { id: 14, name: "Maminha (Indiv)", price: 99.90, category: "Especialidades" },
-    { id: 15, name: "Maminha (Dupla)", price: 199.90, category: "Especialidades" },
-    { id: 16, name: "Fraldinha (Indiv)", price: 99.90, category: "Especialidades" },
-    { id: 17, name: "Fraldinha (Dupla)", price: 199.90, category: "Especialidades" },
-    { id: 18, name: "Carré de Cordeiro", price: 239.90, category: "Especialidades" },
-    { id: 19, name: "Salmão (Indiv)", price: 96.90, category: "Especialidades" },
-    { id: 20, name: "Salmão (Dupla)", price: 199.80, category: "Especialidades" },
-    { id: 21, name: "Frango Grelhado (Indiv)", price: 84.90, category: "Especialidades" },
-    { id: 22, name: "Frango Grelhado (Dupla)", price: 169.80, category: "Especialidades" },
+    { id: 13, name: "Chuleta T-Bone (Dupla)", price: 219.90, category: "Especialidades" },
+    { id: 14, name: "Maminha (Indiv)", price: 104.90, category: "Especialidades" },
+    { id: 15, name: "Maminha (Dupla)", price: 209.90, category: "Especialidades" },
+    { id: 16, name: "Fraldinha (Indiv)", price: 104.90, category: "Especialidades" },
+    { id: 17, name: "Fraldinha (Dupla)", price: 209.90, category: "Especialidades" },
+    { id: 18, name: "Carré de Cordeiro", price: 249.90, category: "Especialidades" },
+    { id: 19, name: "Salmão (Indiv)", price: 104.90, category: "Especialidades" },
+    { id: 20, name: "Salmão (Dupla)", price: 209.80, category: "Especialidades" },
+    { id: 21, name: "Frango Grelhado (Indiv)", price: 94.90, category: "Especialidades" },
+    { id: 22, name: "Frango Grelhado (Dupla)", price: 189.80, category: "Especialidades" },
 
     // Linguiças
     { id: 23, name: "Calabresa Tradicional", price: 99.90, category: "Linguiças" },
@@ -35,8 +36,9 @@ const menuData = [
     { id: 26, name: "Calabresa c/ Queijo Coalho", price: 99.90, category: "Linguiças" },
 
     // Executivo e Outros
-    { id: 27, name: "Promoção Executiva", price: 64.90, category: "Executivo" },
-    { id: 28, name: "Acesso Buffet (Avulso)", price: 64.90, category: "Executivo" },
+    { id: 27, name: "Promoção Executiva", price: 69.90, category: "Executivo" },
+    { id: 28, name: "Acesso Buffet (Avulso)", price: 69.90, category: "Executivo" },
+    { id: 52, name: "Salada Completa", price: 54.90, category: "Executivo" },
     { id: 46, name: "Embalagem para Viagem", price: 4.99, category: "Executivo" },
 
     // Sobremesas
@@ -49,8 +51,8 @@ const menuData = [
     { id: 32, name: "Refrigerante Lata 350ml", price: 14.00, category: "Bebidas" },
     { id: 33, name: "Água / Tônica", price: 14.00, category: "Bebidas" },
     { id: 34, name: "Suco Natural", price: 14.00, category: "Bebidas" },
-    { id: 35, name: "Suco Misto", price: 17.00, category: "Bebidas" },
-    { id: 36, name: "Jarra de Suco", price: 34.90, category: "Bebidas" },
+    { id: 35, name: "Suco Misto", price: 15.00, category: "Bebidas" },
+    { id: 36, name: "Jarra de Suco", price: 35.00, category: "Bebidas" },
     { id: 37, name: "Jarra Mista", price: 37.90, category: "Bebidas" },
     { id: 38, name: "Cerveja Clássica 600ml", price: 22.90, category: "Bebidas" },
     { id: 39, name: "Cerveja de Trigo Alemã", price: 35.00, category: "Bebidas" },
@@ -59,7 +61,10 @@ const menuData = [
     { id: 42, name: "Caipirinha Especial", price: 37.90, category: "Bebidas" },
     { id: 43, name: "Cachaça de Alambique", price: 8.00, category: "Bebidas" },
     { id: 44, name: "Cachaça Weber Haus", price: 22.90, category: "Bebidas" },
-    { id: 45, name: "Cachaça (Dose)", price: 12.50, category: "Bebidas" }
+    { id: 45, name: "Cachaça (Boazinha ou Salinas)", price: 15.50, category: "Bebidas" },
+    { id: 49, name: "Cachaça (Seleta)", price: 19.50, category: "Bebidas" },
+    { id: 50, name: "Cachaça (Espírito de Minas)", price: 24.50, category: "Bebidas" },
+    { id: 48, name: "Madalena", price: 39.50, category: "Bebidas" },
 ];
 
 // ==========================================
@@ -77,7 +82,7 @@ const itemsGridEl = document.getElementById("items-grid");
 const ticketItemsEl = document.getElementById("ticket-items");
 const subtotalEl = document.getElementById("subtotal");
 const totalPriceEl = document.getElementById("total-price");
-const taxToggle = document.getElementById("tax-toggle");
+const taxSelect = document.getElementById("tax-select");
 const couvertInput = document.getElementById("couvert-input");
 const splitInput = document.getElementById("split-input");
 const splitResultEl = document.getElementById("split-result");
@@ -182,8 +187,8 @@ function updateTicket() {
     });
 
     // 2. Cálculos
-    const useTax = taxToggle.checked;
-    const taxAmount = useTax ? subtotal * 0.1 : 0;
+    const taxRate = parseFloat(taxSelect.value) / 100;
+    const taxAmount = subtotal * taxRate;
     const couvert = parseFloat(couvertInput.value) || 0;
     const total = subtotal + taxAmount + couvert;
     const splitCount = parseInt(splitInput.value) || 1;
@@ -199,7 +204,7 @@ function updateTicket() {
 // EVENTOS E INTEGRAÇÕES
 // ==========================================
 function setupEventListeners() {
-    taxToggle.addEventListener("change", updateTicket);
+    taxSelect.addEventListener("change", updateTicket);
     couvertInput.addEventListener("input", updateTicket);
     splitInput.addEventListener("input", updateTicket);
 
@@ -244,7 +249,7 @@ function setupEventListeners() {
             ticketItems = [];
             couvertInput.value = "0.00";
             splitInput.value = "1";
-            taxToggle.checked = true;
+            taxSelect.value = "10";
             document.getElementById("table-number").value = "1";
             updateTicket();
         }
@@ -280,8 +285,8 @@ function handlePrintReceipt() {
         `;
     });
 
-    const useTax = taxToggle.checked;
-    const taxAmount = useTax ? subtotal * 0.1 : 0;
+    const taxRate = parseFloat(taxSelect.value) / 100;
+    const taxAmount = subtotal * taxRate;
     const couvert = parseFloat(couvertInput.value) || 0;
     const total = subtotal + taxAmount + couvert;
     const splitCount = parseInt(splitInput.value) || 1;
@@ -319,9 +324,9 @@ function handlePrintReceipt() {
                 <span>Subtotal:</span>
                 <span>${subtotal.toFixed(2)}</span>
             </div>
-            ${useTax ? `
+            ${taxAmount > 0 ? `
             <div class="receipt-line">
-                <span>Taxa de Serviço (10%):</span>
+                <span>Taxa de Serviço (${taxSelect.value}%):</span>
                 <span>${taxAmount.toFixed(2)}</span>
             </div>` : ""}
             ${couvert > 0 ? `
@@ -517,10 +522,10 @@ function renderDailyReport() {
             </div>
             <div style="display:flex; justify-content:space-between; font-size: 14px; color: #555;">
                 <span>Real: ${formatCurrency(real)}</span>
-                <span>Taxa 10%: ${formatCurrency(tax)}</span>
+                <span>Taxa: ${formatCurrency(tax)}</span>
             </div>
             <div style="display:flex; justify-content:flex-end; gap: 8px; margin-top: 8px;">
-                ${tax > 0 ? `<button onclick="removeTaxFromReport(${originalIndex})" style="padding: 4px 8px; font-size: 12px; background: #f39c12; color: #fff; border: none; border-radius: 4px; cursor: pointer;">Remover 10%</button>` : ''}
+                ${tax > 0 ? `<button onclick="removeTaxFromReport(${originalIndex})" style="padding: 4px 8px; font-size: 12px; background: #f39c12; color: #fff; border: none; border-radius: 4px; cursor: pointer;">Remover Taxa</button>` : ''}
                 <button onclick="removeReportItem(${originalIndex})" style="padding: 4px 8px; font-size: 12px; background: #e74c3c; color: #fff; border: none; border-radius: 4px; cursor: pointer;">Excluir Mesa</button>
             </div>
         `;
@@ -547,7 +552,7 @@ init();
 window.removeTaxFromReport = function (index) {
     let dailyReport = JSON.parse(localStorage.getItem('adegaDailyReport')) || [];
     if (dailyReport[index] && dailyReport[index].tax > 0) {
-        if (confirm("Deseja remover a taxa de 10% desta mesa? O valor total será recalculado.")) {
+        if (confirm("Deseja remover a taxa desta mesa? O valor total será recalculado.")) {
             dailyReport[index].total -= dailyReport[index].tax;
             dailyReport[index].tax = 0;
             localStorage.setItem('adegaDailyReport', JSON.stringify(dailyReport));
