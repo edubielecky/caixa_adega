@@ -36,7 +36,7 @@ const menuData = [
     { id: 26, name: "Calabresa c/ Queijo Coalho", price: 99.90, category: "Linguiças" },
 
     // Executivo e Outros
-    { id: 27, name: "Promoção Executiva", price: 64.90, category: "Executivo" },
+    { id: 27, name: "Promoção Executiva", price: 69.90, category: "Executivo" },
     { id: 28, name: "Acesso Buffet (Avulso)", price: 64.90, category: "Executivo" },
     { id: 52, name: "Salada Completa", price: 54.90, category: "Executivo" },
     { id: 46, name: "Embalagem para Viagem", price: 4.99, category: "Executivo" },
